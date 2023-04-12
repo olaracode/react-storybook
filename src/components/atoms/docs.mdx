@@ -6,6 +6,7 @@ Index:
 - [Modal](#modal)
   - [Modal](#modal-1)
   - [CloseIcon](#closeicon)
+- [Link](#link)
 
 ## MarkdownPost
 
@@ -55,3 +56,18 @@ Usage:
 ```jsx
 <CloseIcon onClose={onClose} />
 ```
+
+## Navigation
+
+### Link
+
+> Important: When documenting a component that uses the Link atom, make sure to use the `docs` prop on the Link atom. This will make sure that the link is styled correctly and prevent the use of the BrowserContext outside the BrowserProvider.
+
+**Props:**
+
+- content: string -> Content to render inside the link
+- to: string -> Path to navigate to
+- color?: string -> Color of the link
+- variant?: keyof typeof variants -> Variant of the link
+- as?: keyof typeof asEnum -> HTML tag to render the link as
+- docs?: boolean -> Whether the link is a docs link or not
