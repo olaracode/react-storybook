@@ -2,7 +2,12 @@ import React from "react";
 import { Box, IconButton } from "@mui/material";
 import { Close } from "@mui/icons-material";
 import { red } from "@mui/material/colors";
-const CloseIcon = ({ onClose }: { onClose: () => void }) => {
+
+export type CloseIconProps = {
+  onClose: () => void;
+};
+
+const CloseIcon = ({ onClose }: CloseIconProps) => {
   return (
     <Box display="flex" justifyContent="end">
       <IconButton

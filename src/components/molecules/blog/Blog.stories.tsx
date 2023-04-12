@@ -2,6 +2,7 @@ import React from "react";
 import Blog from "./Blog";
 import { BlogT } from "../../../hooks/useBlogs";
 import { fakeBlogs } from "../../../utils/blogs";
+
 export default {
   title: "Components/Molecules/Blog",
   component: Blog,

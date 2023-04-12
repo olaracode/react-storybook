@@ -1,0 +1,35 @@
+# Components structure
+
+All components should be inside a folder which includes de component and the storybook file
+
+Components are divided in:
+
+- [Atoms](#atoms)
+- [Molecules](#molecules)
+- [Organisms](#organisms)
+- [Layout](#layout)
+
+## Atoms
+
+> [Go to Docs](?path=/docs/components-atoms-docs--docs)
+
+Should be small components with as few dependencies as possible, should be divided by folders which include the component itself and the corresponding storybook, **small abstractions of the components can be inside the same folder**.
+
+## Molecules
+
+> [Go to Docs](?path=/docs/components-molecules-docs--docs)
+
+Should be composed by atoms or medium sized components, should be divided by folders which include the component itself and the corresponding storybook, **Should not have abstractions in the same folder**.
+
+## Organisms
+
+> [Go to Docs](?path=/docs/components-organisms-docs--docs)
+> Large components that can be composed by molecules or atoms, should be divided by folders which include the component itself and the corresponding storybook, **Should not have abstractions in the same folder**.
+
+## Layout
+
+Components meant to wrap the application.
+
+- [Navbar](?path=/story/layout-navbar--default-navbar)
+- [Layout](?path=/story/layout-layout--default)
+- [Footer](?path=/story/layout-footer--default)

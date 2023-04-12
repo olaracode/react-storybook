@@ -1,0 +1,42 @@
+import Blog from "./blog/Blog";
+
+# Molecules
+
+Index:
+
+- [Blog](#blog)
+
+## Blog
+
+Blogs are fetched from the API. For the **examples it is used the fakeBlogs array from utils/fakeBlogs.ts**
+
+**Props**
+
+- slug: string
+- title: string
+- tags: string[]
+- \_id: string
+- isPreview?: boolean
+- content?: string | undefined
+
+**Example**
+
+```tsx
+<Blog slug="blog-1" title="Blog 1" tags={["tag1", "tag2"]} _id="1" />
+```
+
+**Which Renders:**
+
+Component with preview:
+
+<Blog slug="blog-1" title="Title" tags={["Blog", "Preview"]} _id="1" />
+
+Component with content:
+
+<Blog
+  slug="blog-without-preview"
+  title="Blog content"
+  tags={["Blog", "Content"]}
+  content="# Blog content"
+  isPreview={false}
+/>

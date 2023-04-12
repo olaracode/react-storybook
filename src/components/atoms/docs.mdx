@@ -1,1 +1,57 @@
-# Component structure
+# Atoms
+
+Index:
+
+- [MarkdownPost](#markdownpost)
+- [Modal](#modal)
+  - [Modal](#modal-1)
+  - [CloseIcon](#closeicon)
+
+## MarkdownPost
+
+**Props:**
+
+- content: string -> Markdown content
+
+Renders markdown using react-markdown & react-syntax-highlighter
+
+Usage:
+
+```jsx
+<MarkdownPost content={content} />
+```
+
+## Modal
+
+- Modal -> Base for a modal
+- CloseIcon -> Close icon for the modal
+
+### Modal -> BaseComponent
+
+**Props:**
+
+- isOpen: boolean -> Whether the modal is open or not
+- onClose: () => void -> Function to call when the modal is closed
+- closeIcon: boolean -> Whether to show the close icon or not
+- variant: "base" | "fullScreen" -> Size of the modal(default: base)
+- children: React.ReactNode -> Children to render inside the modal
+
+Usage:
+
+```jsx
+<Modal isOpen={isOpen} onClose={onClose} closeIcon={true} variant={"base"}>
+  {children}
+</Modal>
+```
+
+### CloseIcon
+
+**Props:**
+
+- onClose: () => void -> Function to call when the close icon is clicked
+
+Usage:
+
+```jsx
+<CloseIcon onClose={onClose} />
+```

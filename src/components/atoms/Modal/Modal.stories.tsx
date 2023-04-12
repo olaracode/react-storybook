@@ -2,7 +2,7 @@ import React from "react";
 import Modal, { ModalProps } from "./Modal";
 
 export default {
-  title: "Components/Atoms/Modals/Modal",
+  title: "Components/Atoms/Modal/Modal",
   component: Modal,
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack, Container, Typography, Chip } from "@mui/material";
-import { BlogT } from "../../../hooks/useBlogs";
-import MarkdownPost from "../../atoms/MarkdownPost/MarkdownPost";
+import { BlogT } from "@/hooks/useBlogs";
+import { MarkdownPost } from "@/components/atoms";
 
 // Extend BlogT with isPreview
 type BlogTProps = BlogT & {
