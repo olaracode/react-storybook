@@ -2,7 +2,7 @@ import React from "react";
 import SearchModal, { SearchModalProps } from "./SearchModal";
 import { defaultBlogs } from "../../layout/Navbar";
 export default {
-  title: "Components/Atoms/Modals/SearchModal",
+  title: "Components/Organisms/Modals/SearchModal",
   component: SearchModal,
 };
 

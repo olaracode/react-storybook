@@ -15,7 +15,6 @@ import Modal from "../../atoms/Modal/Modal";
 export type SearchModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  blogs: { title: string; content: string }[];
 };
 
 const SearchInput = styled(TextField)({
