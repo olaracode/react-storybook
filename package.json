@@ -18,7 +18,9 @@
     "framer-motion": "^10.11.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0"
+    "react-markdown": "^8.0.6",
+    "react-router-dom": "^6.10.0",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.2",
