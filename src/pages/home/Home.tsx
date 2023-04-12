@@ -1,7 +1,7 @@
 import React from "react";
 import BlogList from "../../components/organism/blog/BlogList";
-import Blog, { BlogT } from "../../components/molecules/blogs/Blog";
-export const mockBlogs: BlogT[] = [
+import useBlogs from "../../hooks/useBlogs";
+export const mockBlogs = [
   {
     title: "Prueba",
     tags: ["Tag1", "tag2"],
@@ -14,11 +14,9 @@ export const mockBlogs: BlogT[] = [
   },
 ];
 const Home = () => {
-  return (
-    <div>
-      <BlogList blogs={mockBlogs} />
-    </div>
-  );
+  const { blogs, loading, error } = useBlogs();
+
+  return <div>{blogs && <BlogList blogs={blogs} />}</div>;
 };
 
 export default Home;

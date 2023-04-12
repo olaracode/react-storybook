@@ -1,6 +1,6 @@
 import React from "react";
 import SearchModal, { SearchModalProps } from "./SearchModal";
-import { defaultBlogs } from "../../layout/Navbar";
+import { mockBlogs } from "../../../pages/home/Home";
 export default {
   title: "Components/Organisms/Modals/SearchModal",
   component: SearchModal,
@@ -11,5 +11,5 @@ export const Default = Template.bind({});
 Default.args = {
   isOpen: true,
   onClose: () => undefined,
-  blogs: defaultBlogs,
+  blogs: mockBlogs,
 };
