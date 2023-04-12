@@ -3,8 +3,13 @@ import { Box, Container, Typography, IconButton } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import { grey } from "@mui/material/colors";
 import SearchModal from "../organism/search/SearchModal";
+import { Link } from "@/components/atoms";
 
-const Navbar = () => {
+export type NavbarT = {
+  docs?: boolean;
+};
+
+const Navbar = ({ docs = false }: NavbarT) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
@@ -19,7 +24,14 @@ const Navbar = () => {
             alignItems="center"
           >
             <Box>
-              <Typography>RMuiBook</Typography>
+              <Link
+                variant="primary"
+                content="ReDocs + Storybook"
+                color="#fafafa"
+                as={"h6"}
+                to="/"
+                docs={docs}
+              />
             </Box>
             <Box>
               <IconButton onClick={handleOpen} sx={{ color: "white" }}>
