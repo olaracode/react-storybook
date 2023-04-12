@@ -4,7 +4,7 @@ import { BlogT } from "../../../hooks/useBlogs";
 import { fakeBlogs } from "../../../utils/blogs";
 
 export default {
-  title: "Components/Molecules/Blog",
+  title: "Components/Molecules/Blogs/Blog",
   component: Blog,
 };
 
