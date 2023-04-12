@@ -1,5 +1,7 @@
 import React from "react";
-import Blog, { BlogT } from "./Blog";
+import Blog from "./Blog";
+import { BlogT } from "../../../hooks/useBlogs";
+import { fakeBlogs } from "../../../utils/blogs";
 export default {
   title: "Components/Molecules/Blog",
   component: Blog,
@@ -8,15 +10,12 @@ export default {
 const Template = (args: BlogT) => <Blog {...args} />;
 export const Preview = Template.bind({});
 Preview.args = {
-  title: "Blog Title",
-  content: "# heading 1",
-  tags: ["tag1", "tag2"],
+  ...fakeBlogs[0],
+  isPreview: true,
 };
 
 export const Full = Template.bind({});
 Full.args = {
-  title: "Blog Title",
-  content: "# heading 1",
-  tags: ["tag1", "tag2"],
+  ...fakeBlogs[0],
   isPreview: false,
 };

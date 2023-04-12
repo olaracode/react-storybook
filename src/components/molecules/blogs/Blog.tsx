@@ -1,11 +1,11 @@
 import React from "react";
 import { Stack, Container, Typography, Chip } from "@mui/material";
+import { BlogT } from "../../../hooks/useBlogs";
 import MarkdownPost from "../../atoms/MarkdownPost/MarkdownPost";
-export type BlogT = {
-  title: string;
-  content: string;
+
+// Extend BlogT with isPreview
+type BlogTProps = BlogT & {
   isPreview?: boolean;
-  tags: string[];
 };
 
 export const defaultPost = "# heading 1";
@@ -15,7 +15,7 @@ const Blog = ({
   content = defaultPost,
   tags,
   isPreview = true,
-}: BlogT) => {
+}: BlogTProps) => {
   return (
     <Container>
       {isPreview && <Typography variant="h3">{title}</Typography>}
