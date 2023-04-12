@@ -19,5 +19,13 @@ FullScreen.args = {
   isOpen: true,
   onClose: () => undefined,
   variant: "fullScreen",
-  children: <div>Modal Content</div>,
+  children: <div>FullScreenModal</div>,
+};
+
+export const WithCloseIcon = Template.bind({});
+WithCloseIcon.args = {
+  isOpen: true,
+  onClose: () => undefined,
+  closeIcon: true,
+  children: <div>Modal Content With close icon</div>,
 };

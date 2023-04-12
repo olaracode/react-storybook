@@ -1,6 +1,20 @@
 import React from "react";
-import { Modal as BaseModal, Box } from "@mui/material";
+import { Modal as BaseModal, Box, Stack } from "@mui/material";
 import { grey } from "@mui/material/colors";
+import CloseIcon from "./CloseIcon";
+
+const variants = {
+  fullScreen: {
+    width: { xs: "100%", md: "800px" },
+    height: { xs: "100%", md: "auto" },
+    maxHeight: { xs: "100%", md: "500px" },
+  },
+  base: {
+    width: { xs: "90%", md: "800px" },
+    height: { xs: "auto" },
+    maxHeight: { xs: "100%", md: "500px" },
+  },
+};
 
 const variantEnum = {
   fullScreen: "fullScreen",
@@ -11,23 +25,17 @@ export type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
   variant?: keyof typeof variantEnum;
+  closeIcon?: boolean;
   children: React.ReactNode;
 };
 
-const variants = {
-  fullScreen: {
-    width: { xs: "100%", md: "800px" },
-    height: { xs: "100%", md: "auto" },
-    maxHeight: { xs: "100%", md: "500px" },
-  },
-  base: {
-    width: { xs: "100%", md: "800px" },
-    height: { xs: "auto" },
-    maxHeight: { xs: "100%", md: "500px" },
-  },
-};
-
-const Modal = ({ isOpen, onClose, variant = "base", children }: ModalProps) => {
+const Modal = ({
+  isOpen,
+  onClose,
+  closeIcon = false,
+  variant = "base",
+  children,
+}: ModalProps) => {
   return (
     <BaseModal open={isOpen} onClose={onClose}>
       <Box
@@ -37,7 +45,10 @@ const Modal = ({ isOpen, onClose, variant = "base", children }: ModalProps) => {
         height="100vh"
       >
         <Box {...variants[variant]} color="white" p={3} bgcolor={grey[900]}>
-          {children}
+          <Stack gap={1}>
+            {closeIcon && <CloseIcon onClose={onClose} />}
+            {children}
+          </Stack>
         </Box>
       </Box>
     </BaseModal>

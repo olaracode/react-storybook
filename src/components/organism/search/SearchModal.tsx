@@ -42,31 +42,22 @@ const SearchModal = ({
   onClose = () => undefined,
 }: SearchModalProps) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} variant="fullScreen">
-      <Stack gap={1} mt={1}>
-        <Box display="flex" justifyContent="end">
-          <IconButton
-            sx={{
-              ":hover": {
-                color: red[600],
-              },
-            }}
-            onClick={onClose}
-          >
-            <Close />
-          </IconButton>
-        </Box>
-        <SearchInput
-          label="Search"
-          fullWidth
-          variant="outlined"
-          InputLabelProps={{ style: { color: "white" } }}
-          sx={{ color: "white" }}
-        />
-        <Typography textAlign={"end"} pt={1}>
-          ReactDocs
-        </Typography>
-      </Stack>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      variant="fullScreen"
+      closeIcon={true}
+    >
+      <SearchInput
+        label="Search"
+        fullWidth
+        variant="outlined"
+        InputLabelProps={{ style: { color: "white" } }}
+        sx={{ color: "white" }}
+      />
+      <Typography textAlign={"end"} pt={1}>
+        ReactDocs
+      </Typography>
       <Divider sx={{ my: 2, borderColor: blue[200] }} />
     </Modal>
   );
