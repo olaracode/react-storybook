@@ -27,12 +27,19 @@ const useBlogs = () => {
       dispatch(setLoading(false));
     }
   };
+  const fetchBlogBySlug = async (slug: string) => {
+    try {
+      const response = await get(`/blogs/${slug}`);
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
   React.useEffect(() => {
     if (fulfilled) return;
     if (loading) return;
     fetchBlogs();
   }, []);
-  return { blogs, loading, error };
+  return { blogs, fetchBlogBySlug, loading, error };
 };
 
 export default useBlogs;

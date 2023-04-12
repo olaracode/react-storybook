@@ -16,7 +16,17 @@ const Navbar = ({ docs = false }: NavbarT) => {
 
   return (
     <>
-      <Box sx={{ backgroundColor: grey[900], py: 2, color: "white" }}>
+      <Box
+        sx={{
+          backgroundColor: grey[900],
+          py: 2,
+          color: "white",
+          position: "fixed",
+          width: "100%",
+          top: "0px",
+          left: "0px",
+        }}
+      >
         <Container>
           <Box
             display={"flex"}

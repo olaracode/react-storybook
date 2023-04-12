@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <>
       <Navbar />
-      <Box minHeight={"90vh"}>
+      <Box minHeight={"90vh"} my={12}>
         <Outlet />
       </Box>
       <Footer />
