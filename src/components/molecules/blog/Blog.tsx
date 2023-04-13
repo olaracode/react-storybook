@@ -20,7 +20,9 @@ const Blog = ({
   isPreview = true,
 }: BlogTProps) => {
   // reduce tags to 4 elements
-  tags = tags.slice(0, 4);
+  if (tags && tags.length > 4) {
+    tags = tags.slice(0, 4);
+  }
   return (
     <>
       {isPreview && (
@@ -45,9 +47,8 @@ const Blog = ({
         my={1}
         justifyContent={"end"}
       >
-        {tags.map((tag) => (
-          <Chip key={tag} color="primary" label={tag} />
-        ))}
+        {tags &&
+          tags.map((tag) => <Chip key={tag} color="primary" label={tag} />)}
       </Stack>
       {!isPreview && <MarkdownPost content={content} />}
     </>

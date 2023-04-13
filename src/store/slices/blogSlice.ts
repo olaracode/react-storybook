@@ -6,6 +6,11 @@ export interface BlogState {
   loading: boolean;
   error: boolean;
   fulfilled: boolean;
+  detailFetch: {
+    loading: boolean;
+    error: boolean;
+  };
+  currentBlog: BlogT | undefined;
 }
 
 const initialState: BlogState = {
@@ -13,6 +18,11 @@ const initialState: BlogState = {
   loading: false,
   error: false,
   fulfilled: false,
+  detailFetch: {
+    loading: false,
+    error: false,
+  },
+  currentBlog: undefined,
 };
 const blogSlice = createSlice({
   name: "blog",
@@ -21,23 +31,45 @@ const blogSlice = createSlice({
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
+    setError: (state, action) => {
+      state.error = true;
+    },
     setBlogs: (state, action) => {
       state.blogs = action.payload;
       state.fulfilled = true;
     },
-    setBlogContent: (state, action) => {
-      const { _id, content } = action.payload;
-      const blog = current(state.blogs).find((blog) => blog._id === _id);
-      if (blog) {
-        blog.content = content;
-      }
+
+    setDetailFetchLoading: (state, action) => {
+      state.detailFetch.loading = action.payload;
     },
-    setError: (state, action) => {
-      state.error = true;
+    setDetailFetchError: (state, action) => {
+      state.detailFetch.error = true;
+    },
+    setBlogContent: (state, action) => {
+      const { slug, content } = action.payload;
+      const newBlogs = current(state.blogs).map((blog) => {
+        if (blog.slug === slug) {
+          state.currentBlog = { ...blog, content: content };
+          return { ...blog, content: content };
+        }
+        return blog;
+      });
+      state.blogs = newBlogs;
+    },
+    setCurrentBlog: (state, action) => {
+      state.currentBlog = action.payload;
     },
   },
 });
 
 export default blogSlice.reducer;
 
-export const { setLoading, setBlogs, setError } = blogSlice.actions;
+export const {
+  setLoading,
+  setBlogs,
+  setError,
+  setDetailFetchLoading,
+  setDetailFetchError,
+  setBlogContent,
+  setCurrentBlog,
+} = blogSlice.actions;

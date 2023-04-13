@@ -25,6 +25,7 @@ const Navbar = ({ docs = false }: NavbarT) => {
           width: "100%",
           top: "0px",
           left: "0px",
+          zIndex: 1000,
         }}
       >
         <Container>
