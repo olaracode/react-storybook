@@ -1,4 +1,4 @@
-import { BlogT } from "../hooks/useBlogs";
+import { BlogT } from "@/hooks/blogs/useBlogList";
 
 export const fakeBlogs: BlogT[] = [
   {

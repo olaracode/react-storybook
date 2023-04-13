@@ -1,14 +1,6 @@
 import React from "react";
-import useAxios from "./useAxios";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  setBlogs,
-  setLoading,
-  setError,
-  setDetailFetchLoading,
-  setBlogContent,
-  setCurrentBlog,
-} from "../store/slices/blogSlice";
+
 export type BlogT = {
   slug: string;
   title: string;
@@ -18,13 +10,15 @@ export type BlogT = {
 };
 
 const useBlogs = () => {
-  const { get } = useAxios();
   const { blogs, loading, error, fulfilled, currentBlog, detailFetch } =
     useSelector((state: any) => state.blog);
-
   const dispatch = useDispatch();
 
   const fetchBlogs = async () => {
+    const { get } = await import("./useAxios");
+    const { setBlogs, setLoading, setError } = await import(
+      "../store/slices/blogSlice"
+    );
     try {
       dispatch(setLoading(true));
       const response = await get("/blogs/");
@@ -37,6 +31,9 @@ const useBlogs = () => {
   };
 
   const fetchBlogBySlug = async (slug: string) => {
+    const { get } = await import("./useAxios");
+    const { setDetailFetchLoading, setBlogContent, setCurrentBlog } =
+      await import("../store/slices/blogSlice");
     dispatch(setDetailFetchLoading(true));
     const findBlog = blogs.find((blog: BlogT) => blog.slug === slug);
     if (findBlog && findBlog.content) {
@@ -54,11 +51,13 @@ const useBlogs = () => {
       dispatch(setDetailFetchLoading(false));
     }
   };
+
   React.useEffect(() => {
     if (fulfilled) return;
     if (loading) return;
     fetchBlogs();
-  }, []);
+  }, [fulfilled, loading]);
+
   return { blogs, fetchBlogBySlug, loading, error, currentBlog, detailFetch };
 };
 

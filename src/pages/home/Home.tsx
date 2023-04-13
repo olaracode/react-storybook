@@ -1,10 +1,10 @@
 import { BlogList } from "@/components/organism";
-import { useBlogs } from "@/hooks";
+import { useBlogList } from "@/hooks";
 import { BlogsSkeleton } from "@/components/molecules";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const { blogs, loading, error } = useBlogs();
+  const { blogs, loading, error } = useBlogList();
   const navigate = useNavigate();
   const navigation = (slug: string) => {
     navigate(`/blogs/${slug}`);

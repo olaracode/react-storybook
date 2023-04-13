@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack, Typography, Chip } from "@mui/material";
-import { BlogT } from "@/hooks/useBlogs";
+import { BlogT } from "@/hooks/blogs/useBlogList";
 import { MarkdownPost } from "@/components/atoms";
 import { blue } from "@mui/material/colors";
 // Extend BlogT with isPreview

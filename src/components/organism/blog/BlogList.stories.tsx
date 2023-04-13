@@ -1,6 +1,6 @@
 import React from "react";
 import BlogList from "./BlogList";
-import { BlogT } from "@/hooks/useBlogs";
+import { BlogT } from "@/hooks/blogs/useBlogList";
 import { fakeBlogs } from "@/utils/blogs";
 export default {
   title: "Components/Organisms/BlogList",

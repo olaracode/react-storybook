@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack, Divider, Container } from "@mui/material";
-import { BlogT } from "@/hooks/useBlogs";
+import { BlogT } from "@/hooks/blogs/useBlogList";
 import { Blog } from "@/components/molecules";
 
 const BlogList = ({

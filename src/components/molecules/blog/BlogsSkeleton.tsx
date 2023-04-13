@@ -1,27 +1,24 @@
-import React from "react";
-import { Stack } from "@mui/material";
-import { BlogSkeleton as BaseSkeleton } from "@/components/atoms";
-const HomeLoader = () => {
-  return (
-    <Stack spacing={5}>
-      <BaseSkeleton />
-      <BaseSkeleton />
-      <BaseSkeleton />
-    </Stack>
-  );
-};
-
-const variants = {
-  home: <HomeLoader />,
-  blog: <BaseSkeleton isPreview={false} />,
-};
+import React, { lazy, Suspense } from "react";
 
 export type BlogsSkeletonProps = {
-  variant?: keyof typeof variants;
+  variant?: "home" | "blog";
+  isPreview?: boolean;
 };
 
-const BlogsSkeleton = ({ variant }: BlogsSkeletonProps) => {
-  return variants[variant || "home"];
+const BlogsSkeleton = ({
+  variant = "home",
+  isPreview = false,
+}: BlogsSkeletonProps) => {
+  const LazyComponent =
+    variant === "blog"
+      ? lazy(() => import("@/components/atoms/blog/BlogSkeleton"))
+      : lazy(() => import("@/components/molecules/blog/HomeLoader"));
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LazyComponent isPreview={isPreview} />
+    </Suspense>
+  );
 };
 
 export default BlogsSkeleton;

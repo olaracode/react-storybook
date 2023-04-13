@@ -10,17 +10,11 @@ const customAxios = axios.create({
   },
 });
 
-const useAxios = () => {
-  const get: fetchFunction = async (url) => {
-    try {
-      const response = await customAxios.get(url);
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  return { get };
+export const get: fetchFunction = async (url) => {
+  try {
+    const response = await customAxios.get(url);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 };
-
-export default useAxios;

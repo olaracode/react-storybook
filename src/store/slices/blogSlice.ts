@@ -1,5 +1,5 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import { BlogT } from "@/hooks/useBlogs";
+import { BlogT } from "@/hooks/blogs/useBlogList";
 
 export interface BlogState {
   blogs: BlogT[];
