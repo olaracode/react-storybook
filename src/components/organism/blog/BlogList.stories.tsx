@@ -8,7 +8,7 @@ export default {
 };
 
 const Template = (args: { blogs: BlogT[] }) => <BlogList {...args} />;
-export const Default = Template.bind({});
+export const Default: any = Template.bind({});
 Default.args = {
   blogs: fakeBlogs,
 };

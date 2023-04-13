@@ -6,12 +6,12 @@ export default {
 };
 
 const Template = (args: BlogsSkeletonProps) => <BlogsSkeleton {...args} />;
-export const Home = Template.bind({});
+export const Home: any = Template.bind({});
 Home.args = {
   variant: "home",
 };
 
-export const Blog = Template.bind({});
+export const Blog: any = Template.bind({});
 Blog.args = {
   variant: "blog",
 };

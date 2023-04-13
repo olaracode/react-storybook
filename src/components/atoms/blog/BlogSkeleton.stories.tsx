@@ -6,7 +6,7 @@ export default {
 };
 
 const Template = (args: BlogSkeletonT) => <BlogSkeleton {...args} />;
-export const Default = Template.bind({});
+export const Default: any = Template.bind({});
 Default.args = {
   isPreview: true,
 };

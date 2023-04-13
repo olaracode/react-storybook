@@ -6,7 +6,7 @@ export default {
 };
 
 const Template = (args: any) => <MarkdownPost {...args} />;
-export const Default = Template.bind({});
+export const Default: any = Template.bind({});
 Default.args = {
   content: "# heading 1",
 };

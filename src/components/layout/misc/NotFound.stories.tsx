@@ -5,8 +5,8 @@ export default {
   component: NotFound,
 };
 
-const Template = (args) => <NotFound {...args} />;
-export const Default = Template.bind({});
+const Template = (args: any) => <NotFound {...args} />;
+export const Default: any = Template.bind({});
 Default.args = {
   docs: true,
 };

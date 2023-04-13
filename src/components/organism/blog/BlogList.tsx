@@ -8,7 +8,7 @@ const BlogList = ({
   navigation,
 }: {
   blogs: BlogT[];
-  navigation: (slug: string) => void;
+  navigation?: (slug: string) => void;
 }) => {
   return (
     <Container>

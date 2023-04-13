@@ -7,14 +7,14 @@ export default {
 };
 
 const Template = (args: ModalProps) => <Modal {...args} />;
-export const Default = Template.bind({});
+export const Default: any = Template.bind({});
 Default.args = {
   isOpen: true,
   onClose: () => undefined,
   children: <div>Modal Content</div>,
 };
 
-export const FullScreen = Template.bind({});
+export const FullScreen: any = Template.bind({});
 FullScreen.args = {
   isOpen: true,
   onClose: () => undefined,
@@ -22,7 +22,7 @@ FullScreen.args = {
   children: <div>FullScreenModal</div>,
 };
 
-export const WithCloseIcon = Template.bind({});
+export const WithCloseIcon: any = Template.bind({});
 WithCloseIcon.args = {
   isOpen: true,
   onClose: () => undefined,

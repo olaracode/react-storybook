@@ -9,13 +9,13 @@ export default {
 };
 
 const Template = (args: BlogT) => <Blog {...args} />;
-export const Preview = Template.bind({});
+export const Preview: any = Template.bind({});
 Preview.args = {
   ...fakeBlogs[0],
   isPreview: true,
 };
 
-export const Full = Template.bind({});
+export const Full: any = Template.bind({});
 Full.args = {
   ...fakeBlogs[0],
   isPreview: false,

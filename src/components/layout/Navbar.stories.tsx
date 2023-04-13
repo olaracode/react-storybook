@@ -6,7 +6,7 @@ export default {
 };
 
 const Default = (args: NavbarT) => <Navbar {...args} />;
-export const DefaultNavbar = Default.bind({});
+export const DefaultNavbar: any = Default.bind({});
 DefaultNavbar.args = {
   docs: true,
 };

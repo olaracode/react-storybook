@@ -7,7 +7,7 @@ export default {
 };
 
 const Template = (args: LinkT) => <Link {...args} />;
-export const Default = Template.bind({});
+export const Default: any = Template.bind({});
 Default.args = {
   content: "Link",
   to: "/",

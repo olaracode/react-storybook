@@ -7,7 +7,7 @@ export default {
 
 const Template = (args: CloseIconProps) => <CloseIcon {...args} />;
 
-export const Default = Template.bind({});
+export const Default: any = Template.bind({});
 Default.args = {
   onClose: () => console.log("CloseIcon clicked"),
 };

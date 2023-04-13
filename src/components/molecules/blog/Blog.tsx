@@ -6,7 +6,7 @@ import { blue } from "@mui/material/colors";
 // Extend BlogT with isPreview
 type BlogTProps = BlogT & {
   isPreview?: boolean;
-  navigation: (route: string) => void;
+  navigation?: (route: string) => void;
 };
 
 export const defaultPost = "# heading 1";
