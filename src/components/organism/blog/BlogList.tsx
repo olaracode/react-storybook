@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Divider } from "@mui/material";
+import { Stack, Divider, Container } from "@mui/material";
 import { BlogT } from "@/hooks/useBlogs";
 import { Blog } from "@/components/molecules";
 
@@ -11,11 +11,13 @@ const BlogList = ({
   navigation: (slug: string) => void;
 }) => {
   return (
-    <Stack spacing={2} divider={<Divider variant="middle" />}>
-      {blogs.map((blog) => (
-        <Blog key={blog._id} {...blog} navigation={navigation} />
-      ))}
-    </Stack>
+    <Container>
+      <Stack spacing={2} divider={<Divider variant="middle" />}>
+        {blogs.map((blog) => (
+          <Blog key={blog._id} {...blog} navigation={navigation} />
+        ))}
+      </Stack>
+    </Container>
   );
 };
 

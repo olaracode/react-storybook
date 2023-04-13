@@ -1,8 +1,8 @@
 import React from "react";
-import { Stack, Container, Typography, Chip } from "@mui/material";
+import { Stack, Typography, Chip } from "@mui/material";
 import { BlogT } from "@/hooks/useBlogs";
 import { MarkdownPost } from "@/components/atoms";
-
+import { blue } from "@mui/material/colors";
 // Extend BlogT with isPreview
 type BlogTProps = BlogT & {
   isPreview?: boolean;
@@ -19,20 +19,38 @@ const Blog = ({
   navigation = (route: string) => console.log(route),
   isPreview = true,
 }: BlogTProps) => {
+  // reduce tags to 4 elements
+  tags = tags.slice(0, 4);
   return (
-    <Container>
+    <>
       {isPreview && (
-        <Typography variant="h3" onClick={() => navigation(slug)}>
+        <Typography
+          variant="h3"
+          onClick={() => navigation(slug)}
+          sx={{
+            ":hover": {
+              color: blue[500],
+              textDecoration: "underline",
+              cursor: "pointer",
+            },
+          }}
+        >
           {title}
         </Typography>
       )}
-      <Stack direction="row" spacing={1} my={1} justifyContent={"end"}>
+      <Stack
+        direction="row"
+        flexWrap={"wrap"}
+        spacing={1}
+        my={1}
+        justifyContent={"end"}
+      >
         {tags.map((tag) => (
           <Chip key={tag} color="primary" label={tag} />
         ))}
       </Stack>
       {!isPreview && <MarkdownPost content={content} />}
-    </Container>
+    </>
   );
 };
 
