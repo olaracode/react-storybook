@@ -14,6 +14,7 @@ const useBlogDetail = () => {
       await import("../../store/slices/blogSlice");
     dispatch(setDetailFetchLoading(true));
     const findBlog = blogs.find((blog: BlogT) => blog.slug === slug);
+
     if (findBlog && findBlog.content) {
       dispatch(setCurrentBlog(findBlog));
       dispatch(setDetailFetchLoading(false));
@@ -22,7 +23,6 @@ const useBlogDetail = () => {
     try {
       const response = await get(`/blogs/${slug}`);
       dispatch(setBlogContent({ content: response.data.content, slug: slug }));
-      dispatch(setCurrentBlog(findBlog));
       dispatch(setDetailFetchLoading(false));
       return response.data;
     } catch (error: any) {
