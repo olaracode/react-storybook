@@ -2,6 +2,8 @@ import { Box } from "@mui/material";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialOceanic } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { CodeProps } from "react-markdown/lib/ast-to-react";
+
 import "@fontsource/roboto";
 const MarkdownPost = ({ content }: { content: string }) => {
   return (
@@ -24,7 +26,14 @@ const MarkdownPost = ({ content }: { content: string }) => {
     >
       <ReactMarkdown
         components={{
-          code({ node, inline, className, children, ...props }) {
+          code({
+            node,
+            inline,
+            className,
+            children,
+            style,
+            ...props
+          }: CodeProps) {
             const match = /language-(\w+)/.exec(className || "");
             return !inline && match ? (
               <SyntaxHighlighter
