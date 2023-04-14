@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { BlogsSkeleton, Blog } from "@/components/molecules";
 import { Container } from "@mui/material";
 import { useBlogDetails, useBlogs } from "@/hooks";
+import Related from "./Related";
 const BlogDetails = () => {
   const { slug } = useParams<{ slug: string }>();
   const { blogs } = useBlogs();
@@ -15,6 +16,7 @@ const BlogDetails = () => {
   return (
     <Container>
       <Blog {...currentBlog} isPreview={false} />
+      <Related />
     </Container>
   );
 };

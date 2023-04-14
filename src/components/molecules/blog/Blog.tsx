@@ -9,7 +9,7 @@ type BlogTProps = BlogT & {
   navigation?: (route: string) => void;
 };
 
-export const defaultPost = "# heading 1";
+export const defaultPost = "";
 
 const Blog = ({
   title,

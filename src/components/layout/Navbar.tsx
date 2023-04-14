@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Container, Typography, Button } from "@mui/material";
-import { Search } from "@mui/icons-material";
+import { Menu } from "@mui/icons-material";
 import { grey } from "@mui/material/colors";
 import SearchModal from "../organism/search/SearchModal";
 import { Link } from "@/components/atoms";
@@ -69,6 +69,8 @@ const Navbar = ({ docs = false }: NavbarT) => {
                 color: "white",
                 backgroundColor: "rgba(33, 33, 33, 0.6)",
                 boxShadow: "0 0 10px #007bff",
+                display: "flex",
+                gap: 1,
               }}
             >
               <Typography display={{ xs: "none", sm: "block" }}>
@@ -76,7 +78,7 @@ const Navbar = ({ docs = false }: NavbarT) => {
                 <span> + </span>
                 <kbd>K</kbd>
               </Typography>
-              <Search />
+              <Menu />
             </Button>
           </Box>
         </Container>
