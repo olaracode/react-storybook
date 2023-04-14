@@ -4,7 +4,7 @@ import { BlogsSkeleton } from "@/components/molecules";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const { blogs, loading, error } = useBlogList();
+  const { blogs, loading } = useBlogList();
   const navigate = useNavigate();
   const navigation = (slug: string) => {
     navigate(`/blogs/${slug}`);

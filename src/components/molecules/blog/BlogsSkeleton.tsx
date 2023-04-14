@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-
+import { Loading } from "@/components/atoms/loadable/Loadable";
 export type BlogsSkeletonProps = {
   variant?: "home" | "blog";
   isPreview?: boolean;
@@ -15,7 +15,7 @@ const BlogsSkeleton = ({
       : lazy(() => import("@/components/molecules/blog/HomeLoader"));
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loading />}>
       <LazyComponent isPreview={isPreview} />
     </Suspense>
   );

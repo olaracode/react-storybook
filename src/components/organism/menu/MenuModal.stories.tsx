@@ -10,4 +10,5 @@ export const Default: any = Template.bind({});
 Default.args = {
   isOpen: true,
   onClose: () => undefined,
+  toggle: () => undefined,
 };

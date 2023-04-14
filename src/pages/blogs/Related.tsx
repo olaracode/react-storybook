@@ -1,21 +1,19 @@
 import { Suspense } from "react";
-import { BlogList } from "@/components/organism";
 import { useRelated } from "@/hooks";
-import { useNavigation } from "react-router-dom";
-import { CircularProgress, Typography, Divider, Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { RelatedBlogs } from "@/components/organism";
+import { CircularProgress } from "@mui/material";
+
 const Related = () => {
   const { related } = useRelated();
+  const navigate = useNavigate();
+  const handleNavigate = (slug: string) => {
+    navigate(`/blogs/${slug}`);
+  };
   if (!related) return null;
-  const navigation = useNavigation();
   return (
     <Suspense fallback={<CircularProgress />}>
-      <Box>
-        <Typography fontSize={24}>
-          <b>Relacionados</b>
-        </Typography>
-        <Divider />
-        <BlogList blogs={related} />
-      </Box>
+      <RelatedBlogs related={related} navigation={handleNavigate} />
     </Suspense>
   );
 };

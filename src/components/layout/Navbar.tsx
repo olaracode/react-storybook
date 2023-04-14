@@ -5,13 +5,14 @@ import { grey } from "@mui/material/colors";
 import MenuModal from "../organism/menu/MenuModal";
 import { Link } from "@/components/atoms";
 import { Layout } from "@/hooks";
-
+import { useTheme } from "@/hooks";
 export type NavbarT = {
   docs?: boolean;
 };
 
 const Navbar = ({ docs = false }: NavbarT) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const { toggle } = useTheme();
   const { show } = Layout.useScroll();
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
@@ -83,7 +84,7 @@ const Navbar = ({ docs = false }: NavbarT) => {
           </Box>
         </Container>
       </Box>
-      <MenuModal isOpen={isOpen} onClose={handleClose} />
+      <MenuModal isOpen={isOpen} onClose={handleClose} toggle={toggle} />
     </>
   );
 };

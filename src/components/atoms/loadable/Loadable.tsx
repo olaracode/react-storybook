@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { Box, CircularProgress } from "@mui/material";
-const Loading = () => (
+
+export const Loading = () => (
   <Box
     sx={{
       display: "flex",

@@ -8,6 +8,7 @@ import { useTheme } from "@/hooks";
 export type MenuModalProps = {
   isOpen: boolean;
   onClose: () => void;
+  toggle: () => void;
 };
 
 const SearchInput = styled(TextField)({
@@ -29,11 +30,11 @@ const SearchInput = styled(TextField)({
   },
 });
 
-const SearchModal = ({
+const MenuModal = ({
   isOpen = false,
   onClose = () => undefined,
+  toggle = () => undefined,
 }: MenuModalProps) => {
-  const { theme, toggle } = useTheme();
   return (
     <Modal
       isOpen={isOpen}
@@ -71,4 +72,4 @@ const SearchModal = ({
   );
 };
 
-export default SearchModal;
+export default MenuModal;
