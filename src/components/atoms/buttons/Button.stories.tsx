@@ -20,3 +20,11 @@ export const Primary = () => (
     <kbd>K</kbd>
   </Button>
 );
+
+export const Light = () => (
+  <Button onClick={() => undefined} variant="light">
+    <kbd>CTRL</kbd>
+    <span> + </span>
+    <kbd>K</kbd>
+  </Button>
+);

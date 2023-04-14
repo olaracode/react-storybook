@@ -8,7 +8,13 @@ const primary = {
   gap: 1,
 };
 
+const light = {
+  color: "0 0 3px #007bff",
+  boxShadow: "0 0 3px #007bff",
+};
+
 export const variants = {
   base,
   primary,
+  light,
 };
