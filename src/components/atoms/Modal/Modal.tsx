@@ -1,6 +1,5 @@
 import React from "react";
 import { Modal as BaseModal, Box, Stack } from "@mui/material";
-import { grey } from "@mui/material/colors";
 import CloseIcon from "./CloseIcon";
 
 const variants = {
@@ -44,7 +43,16 @@ const Modal = ({
         justifyContent="center"
         height="100vh"
       >
-        <Box {...variants[variant]} color="white" p={3} bgcolor={grey[900]}>
+        <Box
+          {...variants[variant]}
+          color="white"
+          p={3}
+          bgcolor={"rgba(33, 33, 33, 0.8)"}
+          sx={{
+            backdropFilter: "blur(10px)",
+            webkitBackdropFilter: "blur(10px)",
+          }}
+        >
           <Stack gap={1}>
             {closeIcon && <CloseIcon onClose={onClose} />}
             {children}

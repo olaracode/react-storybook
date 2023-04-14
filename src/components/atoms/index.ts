@@ -3,3 +3,4 @@ export { default as MarkdownPost } from "./MarkdownPost/MarkdownPost";
 export { default as Link } from "./navigation/Link";
 export { default as BlogSkeleton } from "./blog/BlogSkeleton";
 export { default as Loadable } from "./loadable/Loadable";
+export { default as Button } from "./buttons/Button";
