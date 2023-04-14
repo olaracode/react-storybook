@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Container, Typography, Button } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 import { grey } from "@mui/material/colors";
-import SearchModal from "../organism/search/SearchModal";
+import MenuModal from "../organism/menu/MenuModal";
 import { Link } from "@/components/atoms";
 import { Layout } from "@/hooks";
 
@@ -83,7 +83,7 @@ const Navbar = ({ docs = false }: NavbarT) => {
           </Box>
         </Container>
       </Box>
-      <SearchModal isOpen={isOpen} onClose={handleClose} />
+      <MenuModal isOpen={isOpen} onClose={handleClose} />
     </>
   );
 };

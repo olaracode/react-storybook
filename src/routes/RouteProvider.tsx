@@ -1,5 +1,6 @@
 import React, { lazy } from "react";
 import { Loadable } from "@/components/atoms";
+import { CircularProgress } from "@mui/material";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const AppWraper = Loadable(lazy(() => import("./AppWraper")));
 const BlogDetails = Loadable(lazy(() => import("@/pages/blogs/BlogDetails")));
@@ -25,7 +26,9 @@ const routes = createBrowserRouter([
   },
 ]);
 const RoutesProvider = () => {
-  return <RouterProvider router={routes} />;
+  return (
+    <RouterProvider router={routes} fallbackElement={<CircularProgress />} />
+  );
 };
 
 export default RoutesProvider;

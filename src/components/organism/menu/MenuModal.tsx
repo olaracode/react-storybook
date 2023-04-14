@@ -4,7 +4,8 @@ import { blue } from "@mui/material/colors";
 import { DarkMode, Login } from "@mui/icons-material";
 import { Modal, Button } from "@/components/atoms";
 import { useTheme } from "@/hooks";
-export type SearchModalProps = {
+
+export type MenuModalProps = {
   isOpen: boolean;
   onClose: () => void;
 };
@@ -31,7 +32,7 @@ const SearchInput = styled(TextField)({
 const SearchModal = ({
   isOpen = false,
   onClose = () => undefined,
-}: SearchModalProps) => {
+}: MenuModalProps) => {
   const { theme, toggle } = useTheme();
   return (
     <Modal
