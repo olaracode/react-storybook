@@ -9,6 +9,7 @@ export type MenuModalProps = {
   isOpen: boolean;
   onClose: () => void;
   toggle: () => void;
+  navigation: (path: string) => void;
 };
 
 const SearchInput = styled(TextField)({
@@ -34,6 +35,7 @@ const MenuModal = ({
   isOpen = false,
   onClose = () => undefined,
   toggle = () => undefined,
+  navigation = (path) => undefined,
 }: MenuModalProps) => {
   return (
     <Modal
@@ -58,7 +60,7 @@ const MenuModal = ({
           <Button onClick={toggle} variant="light">
             <DarkMode />
           </Button>
-          <Button onClick={() => {}} variant="light">
+          <Button variant="light" onClick={() => navigation("/auth/login")}>
             Login
             <Login />
           </Button>

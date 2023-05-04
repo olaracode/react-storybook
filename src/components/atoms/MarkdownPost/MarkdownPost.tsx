@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialOceanic } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CodeProps } from "react-markdown/lib/ast-to-react";
-
+import { red } from "@mui/material/colors";
 import "@fontsource/roboto";
 const MarkdownPost = ({ content }: { content: string }) => {
   return (
@@ -15,12 +15,30 @@ const MarkdownPost = ({ content }: { content: string }) => {
         },
         "& > h1": {
           fontFamily: "Roboto",
+          borderBottom: "1px solid",
+          my: 1,
         },
         "& > h2": {
           fontFamily: "Roboto",
+          my: 2,
+          borderBottom: "1px solid",
         },
         "& > h3": {
           fontFamily: "Roboto",
+          my: 1,
+        },
+        "& > h4": {
+          fontFamily: "Roboto",
+          fontWeight: "bold",
+          my: 1,
+        },
+        "& > blockquote": {
+          fontFamily: "Roboto",
+          my: 1,
+          backgroundColor: red[300],
+          borderRadius: 1,
+          padding: 3,
+          width: "auto",
         },
       }}
     >

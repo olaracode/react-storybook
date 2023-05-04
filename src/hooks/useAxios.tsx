@@ -18,3 +18,12 @@ export const get: fetchFunction = async (url) => {
     console.log(error);
   }
 };
+
+export const post: fetchFunction = async (url) => {
+  try {
+    const response = await customAxios.post(url);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

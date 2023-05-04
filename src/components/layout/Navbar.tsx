@@ -6,17 +6,23 @@ import MenuModal from "../organism/menu/MenuModal";
 import { Link } from "@/components/atoms";
 import { Layout } from "@/hooks";
 import { useTheme } from "@/hooks";
+import { useNavigate } from "react-router-dom";
 export type NavbarT = {
   docs?: boolean;
 };
 
 const Navbar = ({ docs = false }: NavbarT) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const navigate = useNavigate();
   const { toggle } = useTheme();
   const { show } = Layout.useScroll();
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
 
+  const handleNavigation = (route: string) => {
+    navigate(route);
+    handleClose();
+  };
   // CTRL + K Event -> Open Search Modal
   const handleCTRLK = (e: KeyboardEvent) => {
     if ((e.ctrlKey && e.key === "k") || (e.metaKey && e.key === "k")) {
@@ -84,7 +90,12 @@ const Navbar = ({ docs = false }: NavbarT) => {
           </Box>
         </Container>
       </Box>
-      <MenuModal isOpen={isOpen} onClose={handleClose} toggle={toggle} />
+      <MenuModal
+        isOpen={isOpen}
+        onClose={handleClose}
+        toggle={toggle}
+        navigation={handleNavigation}
+      />
     </>
   );
 };

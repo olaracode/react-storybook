@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { Loading } from "@/components/atoms/loadable/Loadable";
+import { Container } from "@mui/material";
 export type BlogsSkeletonProps = {
   variant?: "home" | "blog";
   isPreview?: boolean;
@@ -16,7 +17,9 @@ const BlogsSkeleton = ({
 
   return (
     <Suspense fallback={<Loading />}>
-      <LazyComponent isPreview={isPreview} />
+      <Container>
+        <LazyComponent isPreview={isPreview} />
+      </Container>
     </Suspense>
   );
 };
